@@ -7,8 +7,20 @@
     </head>
     <body>
         <main id="Container">
-            <div id="StandardContainer">
-                <h1 id="PageTitle">Etch-A-Sketch</h1>
+            <div id="SketchContainer">
+                <h1 id="PageTitle" class="StandardTitle">Etch-A-Sketch</h1>
+                <div id="SketchScreenContainer">
+                </div>
+                <ul id="SketchDensityButtons">
+                    <li id="DensityButtonLabel">Change Grid Density:</li>
+                    <button id="low" class="densitybutton">Low</button>
+                    <button id="medium" class="densitybutton">Medium</button>
+                    <button id="high" class="densitybutton">High</button>
+                </ul>
+                <div id="SketchEraseButtons">
+                    <button id="erase" class="erasebutton">Erase Board</button>
+                    <button id="changecolorscheme" class="erasebutton">Change Color Scheme</button>
+                </div>
             </div>
         </main>
         <script src="Script.js"></script>

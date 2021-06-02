@@ -1,0 +1,74 @@
+html{
+    background-color: black;
+}
+body{
+    background-color: rgb(37, 37, 37);
+    outline-width: 3px;
+    outline-style: double;
+}
+#Container{
+    height: 850px;
+    width: 1600px;
+    background-color: rgb(119, 0, 0);
+    margin: auto;
+}
+.StandardTitle{
+    width: 500px;
+    height: 100px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    font-size: 3.5rem;
+    text-shadow: -2px 0 gold, 2px 0 gold, 0 2px gold, 0 -2px gold;
+}
+#SketchScreenContainer{
+    width: 1205px;
+    height: 600px;
+    display: flex;
+    margin: auto;
+    margin-top: auto;
+    background-color: rgb(212, 212, 212);
+    flex-wrap: wrap;
+    outline-style: groove;
+}
+.SketchElementEmpty{
+    background-color: rgb(212, 212, 212);
+}
+.SketchElementUsed{
+    background-color: rgb(82, 82, 82);
+}
+.SketchElement{
+    width: var(--sketch-width);
+    height: var(--sketch-width);
+    display: flex;
+}
+#SketchDensityButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: auto;
+    padding-left: 0%;
+    margin-top: 25px;
+    width: 500px;
+    height: 20px;
+}
+#DensityButtonLabel{
+    color: white;
+    font-size: large
+}
+#SketchEraseButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 25px;
+    width: 500px;
+    height: 60px;
+}
+.erasebutton{
+    width: 120px;
+}
