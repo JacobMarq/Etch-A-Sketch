@@ -1,33 +1,41 @@
 html{
     background-color: black;
+    font-size: .82vw;
 }
 body{
-    background-color: rgb(37, 37, 37);
     outline-width: 3px;
     outline-style: double;
     font-family: fantasy;
+    letter-spacing: 0.05em;
 }
 #Container{
-    height: 850px;
-    width: 1600px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    width: 84.1%;
     margin: auto;
-    margin-top: 10px;
     border-style: solid;
     border-color: var(--sketchborder-color);
     border-width: 5px;
 }
+#SketchContainer{
+    width: 75.5%;
+}
 .StandardTitle{
     cursor: default;
-    width: 550px;
-    height: 100px;
+    width: 50%;
     display: flex;
     justify-self: center;
     justify-content: center;
     text-align: center;
+    align-items: center;
     margin: auto;
     position: relative;
     font-size: 4rem;
     line-height: 1.5em;
+    letter-spacing: .1em;
     color: gold;
     text-shadow: -2px 0 rgb(184, 138, 24),
     2px 0 rgb(184, 138, 24),
@@ -35,30 +43,44 @@ body{
     0 -2px rgb(184, 138, 24),
     0 0 15px black;
 }
-#SketchScreenContainer{
-    width: 1205px;
-    height: 600px;
-    display: flex;
+#ScreenWrapper{
+    width: 100%;
+    padding-top: 50%;
     margin: auto;
     margin-top: auto;
-    flex-wrap: wrap;
+    position: relative;
+}
+#SketchScreenContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    margin: auto;
+    margin-top: auto;
     outline-style: solid;
     outline-width: 4px;
     outline-color: var(--sketchborder-color);
 }
+#SketchScreenContainer*{
+    height: 100%;
+    transition: 0.2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
 .SketchElementEmpty{
     background-color: var(--sketchempty-color);
-    /*background-color: rgb(212, 212, 212);*/
 }
 .SketchElementUsed{
     background-color: var(--sketchused-color);
-    /*background-color: rgb(82, 82, 82);*/
 }
-.SketchElement{
-    width: var(--sketch-width);
-    height: var(--sketch-width);
-    display: flex;
-}
+
 #SketchDensityButtons{
     display: flex;
     flex-direction: row;
@@ -68,31 +90,32 @@ body{
     margin: auto;
     padding-left: 0%;
     margin-top: 25px;
-    width: 500px;
+    width: 55%;
     height: 20px;
 }
 #DensityButtonLabel{
     color: goldenrod;
     text-shadow: 0 0 2px black;
-    font-size: large;
+    font-size: 1.5rem;
     cursor: default;
     text-transform: uppercase;
     text-decoration: none;
     overflow: hidden;
-    font-size: larger;
 }
 #SketchEraseButtons{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: auto;
-    margin-top: 25px;
-    width: 500px;
-    height: 75px;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    width: 50%;
+    height: 40px;
 }
 .erasebutton{
-    width: 120px;
-    height: 60px;
+    width: 30%;
+    height: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,23 +137,23 @@ body{
     color: black;
     background-color: white;
     border: 0.125em solid white;
-    border-radius: 10%;
+    border-radius: 12.5%;
     box-shadow: 0 0 .5em black;
     text-transform: uppercase;
     text-decoration: none;
     overflow: hidden;
     transition: 0.2s;
     padding: 5px;
-    font-size: normal;
+    font-size: 1rem;
     transition: 0.2s;
 }
 .sketchbutton:hover{
-    font-size: 1.1em;
+    font-size: 1.2rem;
     border-color: goldenrod;
     box-shadow: 0 0 .5em goldenrod;
 }
 .sketchbutton:focus{
-    font-size: 1.1em;
+    font-size: 1.2rem;
 }
 #ColorScheme{
     display: flex;

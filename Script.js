@@ -5,42 +5,57 @@ const _medium = 32;
 const _high = 64;
 let density = _high;
 let gridDensity = density * (density * 2);
-let screenSurfaceArea = sketchScreenContainer.offsetHeight * sketchScreenContainer.offsetWidth;
-let sizeFinder = screenSurfaceArea / gridDensity;
-let elementSize = Math.sqrt(sizeFinder);
-let sketchElementID = document.getElementsByClassName("SketchElement");
+let sketchElementClass = document.getElementsByClassName("SketchElement");
 let sketchButtons = document.getElementsByClassName("sketchbutton");
 let neon = false;
 let greyscale = false;
 let colorScheme;
+let screenHeight;
+let screenWidth;
+
+//let screenSurfaceArea = sketchScreenContainer.offsetHeight * sketchScreenContainer.offsetWidth;
+//let sizeFinder = screenSurfaceArea / gridDensity;
+//let elementSize = Math.sqrt(sizeFinder);
 
 function PopulateGrid()
 {
-    function CalculateScreenSize()
+    //keeping this function here incase I decide to incorporate different aspect ratios for the sketch screen
+
+    /*function CalculateScreenSize()
     {
         gridDensity = density * (density * 2);
+        /*gridDensity = density * density;
+        screenHeight = sketchScreenContainer.offsetHeight;
+        screenWidth = sketchScreenContainer.offsetWidth;
         screenSurfaceArea = sketchScreenContainer.offsetHeight * sketchScreenContainer.offsetWidth;
         sizeFinder = screenSurfaceArea / gridDensity;
         elementSize = Math.sqrt(sizeFinder);
     }
-    function setElementSize()
-    {
-        document.documentElement.style.setProperty('--sketch-width', elementSize + "px")
-    }
-
     CalculateScreenSize();
+    */
+
+    gridDensity = density * (density * 2);
     
     for (i = 0; i < gridDensity; i++) {
         var sketchElement = document.createElement('div');
         sketchElement.className = "SketchElement";
         sketchElement.classList.add("SketchElementEmpty");
         sketchElement.addEventListener("mouseover", setColor);
-    
-        sketchScreenContainer.appendChild(sketchElement);
+        
+        sketchScreenContainer.style.gridTemplateColumns = `repeat(${density * 2}, 1fr)`;
+        sketchScreenContainer.style.gridTemplateRows = `repeat(${density}, 1fr)`;
+        
+        sketchScreenContainer.insertAdjacentElement("beforeend", sketchElement);
     }
 
+    /*
+    function setElementSize()
+    {
+        document.documentElement.style.setProperty('--sketch-width', elementSize + "px")
+    }
     setElementSize();
-    sketchElementID = document.getElementsByClassName("SketchElement");
+    */
+    sketchElementClass = document.getElementsByClassName("SketchElement");
 }
 function setColor(element)
 {
@@ -76,28 +91,26 @@ function setColor(element)
 }
 function DepopulateGrid()
 {
-    var elementsOnGrid;
-    elementsOnGrid = sketchElementID.length;
+    var elementsOnGrid = sketchElementClass.length;
 
     for (i = 0; i < elementsOnGrid; i++){
-        sketchScreenContainer.removeChild(sketchElementID[0]);
+        sketchScreenContainer.removeChild(sketchElementClass[0]);
     }
 }
-
-function ClearGrid()
-{
-    for (i = 0; i < sketchElementID.length; i++){
-        sketchElementID[i].classList.add("SketchElementEmpty");
-        sketchElementID[i].classList.remove("SketchElementUsed");
-        sketchElementID[i].style.removeProperty("background-color");
-    }
-}
-
 function ResetGrid(scale)
 {
     DepopulateGrid();
     density = scale;
     PopulateGrid();
+}
+
+function ClearGrid()
+{
+    for (i = 0; i < sketchElementClass.length; i++){
+        sketchElementClass[i].classList.add("SketchElementEmpty");
+        sketchElementClass[i].classList.remove("SketchElementUsed");
+        sketchElementClass[i].style.removeProperty("background-color");
+    }
 }
 
 function ChangeColorScheme()
@@ -136,13 +149,12 @@ function SetColorWay(scheme)
 {
     DepopulateGrid();
     ColorScheme.style.removeProperty("color");
-    //document.documentElement.style.setProperty('CssVariable', newvalue);
     if (scheme === 1)
     {
         ColorScheme.textContent = "CLASSIC";
         neon = false;
         greyscale = false;
-        Container.style.backgroundColor = ("rgb(119, 0, 0)");
+        Container.style.backgroundColor = "rgb(119, 0, 0)";
         sketchScreenContainer.style.backgroundColor = "rgb(212, 212, 212)";
         document.documentElement.style.setProperty('--sketchborder-color', "rgb(80, 0, 0)");
         document.documentElement.style.setProperty('--sketchused-color', "rgb(82, 82, 82)");
@@ -155,18 +167,14 @@ function SetColorWay(scheme)
     }
     else if (scheme === 2)
     {   
-        function GenerateColor()
-        {
-            let color = Math.floor(Math.random() * 255)+ 20;
-            return(color);
-        }
         let rainbowtext = "NEON";
         ColorScheme.textContent = "";
 
+        //creates a rainbow effect by generating one letter at a time with a random color 
         for (i = 0; i < rainbowtext.length; i++) {
-            let r = GenerateColor();
-            let g = GenerateColor();
-            let b = GenerateColor();
+            let r = Math.floor(Math.random() * 255)+ 20;
+            let g = Math.floor(Math.random() * 255)+ 20;
+            let b = Math.floor(Math.random() * 255)+ 20;
             var rainbowLetter = document.createElement('span');
             rainbowLetter.style.color = (`rgb(${r}, ${g}, ${b})`);
             rainbowLetter.classList.add("RainbowLetters");
@@ -207,12 +215,8 @@ function SetColorWay(scheme)
 
 PopulateGrid();
 ChangeColorScheme();
-//SetColorWay(1);
 erase.addEventListener("click", ()=>ClearGrid());
 low.addEventListener("click", ()=>ResetGrid(_low));
 medium.addEventListener("click", ()=>ResetGrid(_medium));
 high.addEventListener("click", ()=>ResetGrid(_high));
 changecolorscheme.addEventListener("click", ()=>ChangeColorScheme());
-/*console.log(screenSurfaceArea); 
-console.log(sizeFinder); 
-console.log(elementSize);*/
