@@ -1,69 +1,259 @@
-html{
-    background-color: black;
-    font-size: .82vw;
+
+/*@media(min-width: 1000px){}*/
+@media(max-width: 1000px){
+    
+    html{
+        background-color: black;
+        font-size: 1.2vmax;
+        height: 100%;
+    }
+    body{
+        outline-width: 3px;
+        outline-style: double;
+        font-family: fantasy;
+        letter-spacing: 0.05em;
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+    #Container{
+        display: flex;
+        justify-self: center;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        width: 84.1%;
+        margin: auto;
+        border-style: solid;
+        border-color: var(--sketchborder-color);
+        border-width: 5px;
+        border-radius: 4%;
+    }
+    .StandardTitle{
+        cursor: default;
+        width: 105%;
+        display: flex;
+        justify-self: center;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        font-size: 4rem;
+        line-height: 1em;
+        letter-spacing: .1em;
+        color: gold;
+        text-shadow: -2px 0 rgb(184, 138, 24),
+        2px 0 rgb(184, 138, 24),
+        0 2px rgb(184, 138, 24),
+        0 -2px rgb(184, 138, 24),
+        0 0 15px black;
+    }
+    #ScreenWrapper{
+        width: 100%;
+        padding-top: 150%;
+        margin: auto;
+        margin-top: auto;
+        position: relative;
+    }
+    #SketchScreenContainer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        grid-template-columns: var(--grid-height);
+        grid-template-rows: var(--grid-width);
+        margin: auto;
+        margin-top: auto;
+        outline-style: solid;
+        outline-width: 4px;
+        outline-color: var(--sketchborder-color);
+        border-radius: 0.5%;
+    }
+    #SketchDensityButtons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style: none;
+        align-items: center;
+        padding-left: 0%;
+        margin-top: 25px;
+        width: 100%;
+        height: 20px;
+    }
+    #DensityButtonLabel{
+        color: goldenrod;
+        text-shadow: 0 0 2px black;
+        font-size: 1.3rem;
+        cursor: default;
+        text-transform: uppercase;
+        text-decoration: none;
+        overflow: hidden;
+        width: 50%;
+    }
+    #DensityButtonContainer{
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        justify-content: space-evenly;
+    }
+    #SketchEraseButtons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: auto;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 25px;
+        width: 60%;
+        height: 40px;
+    }
+    .erasebutton{
+        width: 30%;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0%;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
 }
-body{
-    outline-width: 3px;
-    outline-style: double;
-    font-family: fantasy;
-    letter-spacing: 0.05em;
+@media(min-width: 1000px){
+    html{
+        background-color: black;
+        font-size: .82vw;
+        height: 90%;
+    }
+    body{
+        outline-width: 3px;
+        outline-style: double;
+        font-family: fantasy;
+        letter-spacing: 0.05em;
+        height: 100%;
+    }
+    #Container{
+        display: flex;
+        justify-self: center;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        width: 84.1%;
+        margin: auto;
+        border-style: solid;
+        border-color: var(--sketchborder-color);
+        border-width: 5px;
+        border-radius: 4%;
+    }
+    .StandardTitle{
+        cursor: default;
+        width: 50%;
+        display: flex;
+        justify-self: center;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+        position: relative;
+        font-size: 4rem;
+        line-height: 1.5em;
+        letter-spacing: .1em;
+        color: gold;
+        text-shadow: -2px 0 rgb(184, 138, 24),
+        2px 0 rgb(184, 138, 24),
+        0 2px rgb(184, 138, 24),
+        0 -2px rgb(184, 138, 24),
+        0 0 15px black;
+    }
+    #ScreenWrapper{
+        width: 100%;
+        padding-top: 50%;
+        margin: auto;
+        margin-top: auto;
+        position: relative;
+    }
+    #SketchScreenContainer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        grid-template-columns: var(--grid-width);
+        grid-template-rows: var(--grid-height);
+        margin: auto;
+        margin-top: auto;
+        outline-style: solid;
+        outline-width: 4px;
+        outline-color: var(--sketchborder-color);
+        border-radius: 0.5%;
+    }
+    #SketchDensityButtons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style: none;
+        align-items: center;
+        margin: auto;
+        padding-left: 0%;
+        margin-top: 25px;
+        width: 100%;
+        height: 20px;
+    }
+    #DensityButtonLabel{
+        color: goldenrod;
+        text-shadow: 0 0 2px black;
+        font-size: 1.5rem;
+        cursor: default;
+        text-transform: uppercase;
+        text-decoration: none;
+        overflow: hidden;
+    }
+    #DensityButtonContainer{
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        justify-content: space-evenly;
+    }
+    #SketchEraseButtons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: auto;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 25px;
+        width: 40%;
+        height: 40px;
+    }
+    .erasebutton{
+        width: 30%;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0%;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
 }
-#Container{
-    display: flex;
-    justify-self: center;
-    justify-content: center;
-    align-self: center;
-    align-items: center;
-    width: 84.1%;
-    margin: auto;
-    border-style: solid;
-    border-color: var(--sketchborder-color);
-    border-width: 5px;
-}
+
+
 #SketchContainer{
     width: 75.5%;
-}
-.StandardTitle{
-    cursor: default;
-    width: 50%;
-    display: flex;
-    justify-self: center;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin: auto;
-    position: relative;
-    font-size: 4rem;
-    line-height: 1.5em;
-    letter-spacing: .1em;
-    color: gold;
-    text-shadow: -2px 0 rgb(184, 138, 24),
-    2px 0 rgb(184, 138, 24),
-    0 2px rgb(184, 138, 24),
-    0 -2px rgb(184, 138, 24),
-    0 0 15px black;
-}
-#ScreenWrapper{
-    width: 100%;
-    padding-top: 50%;
-    margin: auto;
-    margin-top: auto;
-    position: relative;
-}
-#SketchScreenContainer{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: grid;
-    margin: auto;
-    margin-top: auto;
-    outline-style: solid;
-    outline-width: 4px;
-    outline-color: var(--sketchborder-color);
 }
 #SketchScreenContainer*{
     height: 100%;
@@ -81,51 +271,8 @@ body{
     background-color: var(--sketchused-color);
 }
 
-#SketchDensityButtons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    list-style: none;
-    align-items: center;
-    margin: auto;
-    padding-left: 0%;
-    margin-top: 25px;
-    width: 55%;
-    height: 20px;
-}
-#DensityButtonLabel{
-    color: goldenrod;
-    text-shadow: 0 0 2px black;
-    font-size: 1.5rem;
-    cursor: default;
-    text-transform: uppercase;
-    text-decoration: none;
-    overflow: hidden;
-}
-#SketchEraseButtons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: auto;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 25px;
-    width: 50%;
-    height: 40px;
-}
-.erasebutton{
-    width: 30%;
-    height: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0%;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    overflow: hidden;
-    transition: 0.3s;
-}
+
+
 .erasebutton:hover{
     cursor: pointer;
 }

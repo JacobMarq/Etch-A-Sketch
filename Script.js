@@ -42,9 +42,12 @@ function PopulateGrid()
         sketchElement.classList.add("SketchElementEmpty");
         sketchElement.addEventListener("mouseover", setColor);
         
+        document.documentElement.style.setProperty('--grid-width', `repeat(${density * 2}, 1fr)`);
+        document.documentElement.style.setProperty('--grid-height', `repeat(${density}, 1fr)`);
+        /*
         sketchScreenContainer.style.gridTemplateColumns = `repeat(${density * 2}, 1fr)`;
         sketchScreenContainer.style.gridTemplateRows = `repeat(${density}, 1fr)`;
-        
+        */
         sketchScreenContainer.insertAdjacentElement("beforeend", sketchElement);
     }
 
@@ -212,6 +215,11 @@ function SetColorWay(scheme)
     }
     PopulateGrid();
 }
+var fixedscreen = document.getElementById("SketchScreenContainer");
+
+fixedscreen.addEventListener('touchmove', function(e){
+    e.preventDefault();
+}, false);
 
 PopulateGrid();
 ChangeColorScheme();
