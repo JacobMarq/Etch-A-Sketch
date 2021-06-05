@@ -27,11 +27,10 @@ function PopulateGrid()
         sketchElement.className = "SketchElement";
         sketchElement.classList.add("SketchElementEmpty");
         sketchElement.addEventListener("mouseover", setColor);
+        sketchElement.addEventListener("touchmove", setColor);
         
         document.documentElement.style.setProperty('--grid-width', `repeat(${density * 2}, 1fr)`);
         document.documentElement.style.setProperty('--grid-height', `repeat(${density}, 1fr)`);
-        document.documentElement.style.setProperty('--child-width', `repeat(${density * 2}, 1fr)`);
-        document.documentElement.style.setProperty('--child-height', `repeat(${density}, 1fr)`);
 
         sketchScreenContainer.insertAdjacentElement("beforeend", sketchElement);
     }
