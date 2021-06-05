@@ -193,11 +193,11 @@ function SetColorWay(scheme)
     PopulateGrid();
 }
 
-var fixedscreen = document.getElementById("SketchScreenContainer");
+/*var fixedscreen = document.getElementById("SketchScreenContainer");
 
 fixedscreen.addEventListener('touchmove', function(e){
     e.preventDefault();
-}, false);
+}, false);*/
 
 PopulateGrid();
 ChangeColorScheme();
