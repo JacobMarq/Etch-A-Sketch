@@ -19,20 +19,6 @@ let screenWidth;
 
 function PopulateGrid()
 {
-    //keeping this function here incase I decide to incorporate different aspect ratios for the sketch screen
-
-    /*function CalculateScreenSize()
-    {
-        gridDensity = density * (density * 2);
-        /*gridDensity = density * density;
-        screenHeight = sketchScreenContainer.offsetHeight;
-        screenWidth = sketchScreenContainer.offsetWidth;
-        screenSurfaceArea = sketchScreenContainer.offsetHeight * sketchScreenContainer.offsetWidth;
-        sizeFinder = screenSurfaceArea / gridDensity;
-        elementSize = Math.sqrt(sizeFinder);
-    }
-    CalculateScreenSize();
-    */
 
     gridDensity = density * (density * 2);
     
@@ -51,13 +37,6 @@ function PopulateGrid()
         sketchScreenContainer.insertAdjacentElement("beforeend", sketchElement);
     }
 
-    /*
-    function setElementSize()
-    {
-        document.documentElement.style.setProperty('--sketch-width', elementSize + "px")
-    }
-    setElementSize();
-    */
     sketchElementClass = document.getElementsByClassName("SketchElement");
 }
 function setColor(element)
