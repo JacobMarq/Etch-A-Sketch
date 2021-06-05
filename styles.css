@@ -71,6 +71,10 @@
         outline-color: var(--sketchborder-color);
         border-radius: 0.5%;
     }
+    .SketchElement{
+        grid-column: var(--child-height);
+        grid-row: var(--child-width);
+    }
     #SketchDensityButtons{
         display: flex;
         flex-direction: row;
@@ -195,6 +199,10 @@
         outline-width: 4px;
         outline-color: var(--sketchborder-color);
         border-radius: 0.5%;
+    }
+    .SketchElement{
+        grid-column: var(--child-width);
+        grid-row: var(--child-height);
     }
     #SketchDensityButtons{
         display: flex;
