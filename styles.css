@@ -2,7 +2,7 @@
     
     html{
         background-color: black;
-        font-size: 1.2vmax;
+        font-size: 1vmax;
         height: 100%;
     }
     body{
@@ -91,6 +91,7 @@
         text-decoration: none;
         overflow: hidden;
         width: 50%;
+        text-align: center;
     }
     #DensityButtonContainer{
         display: flex;
