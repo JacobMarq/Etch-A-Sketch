@@ -29,6 +29,8 @@ function PopulateGrid()
         sketchElement.addEventListener("mouseover", setColor);
         sketchElement.addEventListener("touchmove", setColor);
         
+        /*by setting the dimensions of the grid to a variable it allows
+        the contents of the screen to rotate seemlessly for scaling purposes*/ 
         document.documentElement.style.setProperty('--grid-width', `repeat(${density * 2}, 1fr)`);
         document.documentElement.style.setProperty('--grid-height', `repeat(${density}, 1fr)`);
 
@@ -51,6 +53,7 @@ function setColor(element)
     }
     if(greyscale)
     {
+        //creates a greyscale effect by applying black to the elements color and incrementing its alpha
         if (this.style.backgroundColor.match(/rgba/))
         {
             let currentAlpha = Number(this.style.backgroundColor.slice(-4, -1));
@@ -93,6 +96,7 @@ function ClearGrid()
     }
 }
 
+//changes theme by their numbered order
 function ChangeColorScheme()
 {
     if (colorScheme > 0)
@@ -129,21 +133,24 @@ function SetColorWay(scheme)
 {
     DepopulateGrid();
     ColorScheme.style.removeProperty("color");
+    //checks if last theme was neon so as to remove the neon class before implementing the next theme
+    if(neon = true){
+        for (i = 0; i < sketchButtons.length; i++){
+            sketchButtons[i].classList.remove("neonbutton");
+        }
+    }
+    neon = false;
+    greyscale = false;
+
     if (scheme === 1)
     {
         ColorScheme.textContent = "CLASSIC";
-        neon = false;
-        greyscale = false;
         Container.style.backgroundColor = "rgb(119, 0, 0)";
         sketchScreenContainer.style.backgroundColor = "rgb(212, 212, 212)";
         document.documentElement.style.setProperty('--sketchborder-color', "rgb(80, 0, 0)");
         document.documentElement.style.setProperty('--sketchused-color', "rgb(82, 82, 82)");
         document.documentElement.style.setProperty('--sketchempty-color', "rgb(212, 212, 212)");
         ColorScheme.style.color = "goldenrod";
-        
-        for (i = 0; i < sketchButtons.length; i++){
-            sketchButtons[i].classList.remove("neonbutton");
-        }
     }
     else if (scheme === 2)
     {   
@@ -165,7 +172,6 @@ function SetColorWay(scheme)
         }
         
         neon = true;
-        greyscale = false;
         Container.style.backgroundColor = ("rgb(174, 6, 216)");
         sketchScreenContainer.style.backgroundColor = "black";
         document.documentElement.style.setProperty('--sketchborder-color', "rgb(130, 0, 180)");
@@ -178,17 +184,12 @@ function SetColorWay(scheme)
     else if (scheme === 3)
     {
         ColorScheme.textContent = "GREYSCALE";
-        neon = false;
         greyscale = true;
         Container.style.backgroundColor = ("rgb(125, 125, 125)");
         sketchScreenContainer.style.backgroundColor = "white";
         document.documentElement.style.setProperty('--sketchborder-color', "rgb(80, 80, 80)");
         document.documentElement.style.setProperty('--sketchempty-color', "white");
         ColorScheme.style.color = "gray";
-
-        for (i = 0; i < sketchButtons.length; i++){
-            sketchButtons[i].classList.remove("neonbutton");
-        }
     }
     PopulateGrid();
 }
